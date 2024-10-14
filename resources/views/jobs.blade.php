@@ -9,9 +9,10 @@
     <ul>
     @foreach ($jobs as $job)
           <li>
-              <a class="text-blue-500 hover:underline" href="/jobs/{{ $job['id'] }}">
+              <a  href="/jobs/{{ $job['id'] }}" class="block px-4 py-6 border border-gray-200">
         {{ $job['title'] }}
         Description {{ $job['description'] }}
+                  <br>
           Pays : {{ $job['salary'] }}
               </a>
           </li>
