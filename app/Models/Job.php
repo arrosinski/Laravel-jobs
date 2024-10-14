@@ -11,6 +11,8 @@ class Job extends Model
 
     protected $table = 'job_listings';
     protected $fillable = ['title', 'description', 'salary'];
+    // you can disable mass assignment protection by using the $guarded property
+    // protected $guarded = [];
 
     public function employer()
     {
