@@ -76,10 +76,7 @@ Route::delete('/jobs/{id}/edit', function ($id) {
     return redirect('/jobs');
 });
 
-Route::get('/jobs/{id}', function ($id) {
-
-    $job = Job::find($id);
-
+Route::get('/jobs/{job}', function (Job $job) {
     return view('jobs.show', ['job' => $job]);
 });
 
