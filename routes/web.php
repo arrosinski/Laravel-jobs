@@ -8,10 +8,14 @@ Route::get('/', function () {
 });
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
-Route::get('/jobs/', [JobController::class, 'index']);
-Route::post('/jobs', function () {});
-Route::get('/jobs/create', [JobController::class, 'create']);
-Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
-Route::patch('/jobs/{id}/edit', [JobController::class, 'update']);
-Route::delete('/jobs/{id}/edit', [JobController::class, 'destroy']);
-Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::controller(JobController::class)->group(function () {
+    Route::get('/jobs/', 'index');
+    Route::get('/jobs/{job}', 'show');
+    Route::post('/jobs', 'store');
+    Route::get('/jobs/create', 'create');
+    Route::get('/jobs/{job}/edit', 'edit');
+    Route::patch('/jobs/{id}/edit', 'update');
+    Route::delete('/jobs/{id}/edit', 'destroy');
+});
+//Route::resource('jobs', JobController::class);
+
